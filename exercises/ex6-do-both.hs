@@ -6,6 +6,7 @@ inner = doBoth echoName echoAge
 
 doBoth :: Action () -> Action () -> Action ()
 doBoth action1 action2 io1 =
-  _
+  let (io2, _) = action1 io1
+  in action2 io2
 
 main = run inner
